@@ -1,17 +1,18 @@
+
 spring:
-  application:
-    name: student
-
-
   datasource:
     url: jdbc:postgresql://localhost:5432/db
     username: postgres
-    password: postgres
+    password: 7894
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update # or 'create', 'validate', 'none' depending on your needs
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true # Shows SQL statements in the logs for debugging
+    generate-ddl: true
+
 server:
   port: 8081

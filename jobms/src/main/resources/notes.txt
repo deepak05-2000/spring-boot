@@ -1,0 +1,5 @@
+JPA -> Java Persistence API
+converts entity class to database table. We dont have to create table explicitly.
+
+company has a one to many relationship with job and job has many to one
+in this case we will save JOB object.

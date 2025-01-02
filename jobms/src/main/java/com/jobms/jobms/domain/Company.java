@@ -14,7 +14,7 @@ public class Company {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Job> jobs = new ArrayList<>();
 
     public List<Job> getJobs() {

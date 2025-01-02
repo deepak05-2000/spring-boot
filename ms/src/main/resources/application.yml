@@ -1,7 +1,14 @@
+application:
+  name: MS
+
+logging:
+  level:
+    com.concepts.ms: DEBUG
+
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/db
+    url: jdbc:postgresql://localhost:5432/ms
     username: postgres
     password: 7894
     driver-class-name: org.postgresql.Driver
@@ -13,6 +20,26 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true # Shows SQL statements in the logs for debugging
     generate-ddl: true
+
+  profiles:
+    active: prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+#      roles: 'ROLE_ADMIN'
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+    app:
+      name: 'ms'
 
 server:
   port: 8081

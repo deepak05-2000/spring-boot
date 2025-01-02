@@ -1,0 +1,9 @@
+<config xmlns="http://www.ehcache.org/v3">
+    <!-- Cache for Employee Entity -->
+    <cache alias="carRegion">
+        <expiry>
+            <ttl unit="seconds">600</ttl> <!-- Time-to-live for cache -->
+        </expiry>
+        <heap unit="entries">1000</heap> <!-- Maximum entries in memory -->
+    </cache>
+</config>

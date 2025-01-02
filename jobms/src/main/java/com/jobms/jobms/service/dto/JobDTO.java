@@ -1,6 +1,4 @@
-package com.jobms.jobms.dto;
-
-import com.jobms.jobms.domain.Company;
+package com.jobms.jobms.service.dto;
 
 public class JobDTO {
 
@@ -8,7 +6,7 @@ public class JobDTO {
 
     private String title;
 
-    private Company company;
+    private CompanyDTO companyDTO;
 
     public Integer getId() {
         return id;
@@ -26,11 +24,11 @@ public class JobDTO {
         this.title = title;
     }
 
-    public Company getCompany() {
-        return company;
+    public CompanyDTO getCompanyDTO() {
+        return companyDTO;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanyDTO(CompanyDTO companyDTO) {
+        this.companyDTO = companyDTO;
     }
 }

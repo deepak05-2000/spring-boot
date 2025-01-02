@@ -1,0 +1,14 @@
+ACTUATOR: provides many endpoints to tract the application's performance.
+we can see all the beans, we can also change the logging level by endpoints.
+We can also shut-down the application.
+
+
+PROFILES:
+default file for config is application.properties
+we can create more files for diff environment application-{profile-name}.properties
+in application.properties
+we need to write spring.profiles.active: profile-name
+if any property is not available in mentioned profile file then it will be picked from
+application.properties(default file)
+
+If we want a bean to be created only when a particular profile is active, we can use @Profile()

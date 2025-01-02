@@ -12,8 +12,16 @@ spring:
       ddl-auto: update
     show-sql: true
     properties:
+      javax.cache.provider: org.ehcache.jsr107.EhcacheCachingProvider
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+        cache.use_second_level_cache: true
+        cache.region.factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+
+        # Enable Query Cache (Optional)
+#        cache.use_query_cache: true
+
+
 #  security:
 #    user:
 #      name: deepak
@@ -23,4 +31,5 @@ logging:
   level:
     root: info
     com.jobms.jobms: debug
+    org.hibernate.cache.spi: debug
 

@@ -1,8 +1,7 @@
 package com.jobms.jobms.rest;
 
-import com.jobms.jobms.domain.Job;
-import com.jobms.jobms.mapper.JobMapper;
-import com.jobms.jobms.repository.JobRepository;
+import com.jobms.jobms.service.JobServiceImpl;
+import com.jobms.jobms.service.dto.JobDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -10,19 +9,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class JobResource {
 
-    private JobRepository jobRepository;
+    private final JobServiceImpl jobService;
 
-//    private JobMapper jobMapper;
+    public JobResource(JobServiceImpl jobService) {
+        this.jobService = jobService;
+    }
 
-//    public JobResource(JobRepository jobRepository, JobMapper jobMapper) {
-//        this.jobRepository = jobRepository;
-//        this.jobMapper = jobMapper;
-//    }
 
     @GetMapping("/hello")
     public String hello(){
@@ -35,7 +33,12 @@ public class JobResource {
     }
 
     @PostMapping("/jobs")
-    public ResponseEntity<Job> createJob(@RequestBody Job job) throws URISyntaxException {
-        return ResponseEntity.created(new URI("/api/jobs")).body(job);
+    public ResponseEntity<JobDTO> addJob(@RequestBody JobDTO jobDTO) throws URISyntaxException {
+        return ResponseEntity.created(new URI("/api/jobs")).body(jobService.createJob(jobDTO));
+    }
+
+    @GetMapping("/jobs")
+    public ResponseEntity<List<JobDTO>> getAllJobs() {
+        return ResponseEntity.ok(jobService.getAllJobs());
     }
 }

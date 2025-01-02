@@ -19,11 +19,6 @@ import java.util.List;
 public class JobmsApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(JobmsApplication.class);
-	private final JobRepository jobRepository;
-
-	public JobmsApplication(JobRepository jobRepository) {
-		this.jobRepository = jobRepository;
-	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(JobmsApplication.class, args);

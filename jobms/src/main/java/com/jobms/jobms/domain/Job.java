@@ -12,7 +12,7 @@ public class Job implements Serializable {
 
     private String title;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Company company;
 
     public Company getCompany() {

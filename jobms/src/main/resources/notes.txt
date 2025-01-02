@@ -3,3 +3,12 @@ converts entity class to database table. We dont have to create table explicitly
 
 company has a one to many relationship with job and job has many to one
 in this case we will save JOB object.
+
+
+First Level cache is the default cache which is provided by persistent context.
+All the request have different persistent context.
+
+But Second level L2 cache is common for all the persistent context
+
+In READ_WRITE strategy lock is acquired when a put call is made. then data in cache is also updated before
+releasing the lock

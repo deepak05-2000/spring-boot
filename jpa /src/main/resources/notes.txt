@@ -1,0 +1,6 @@
+persist means on saving entity child will also be persisted automatically
+merge takes care of updation of child
+remove automatically deletes the child entity when parent is deleted;
+
+FOR one to one and many to one ... fetch is eager loading by default;
+lazy loading is default for one to many and many to many
